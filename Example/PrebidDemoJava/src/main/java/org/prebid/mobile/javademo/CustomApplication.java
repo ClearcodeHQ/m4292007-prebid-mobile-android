@@ -46,12 +46,10 @@ public class CustomApplication extends Application {
         PrebidMobile.setPbsDebug(true);
         PrebidMobile.setShareGeoLocation(true);
         PrebidMobile.setPrebidServerAccountId("1001");
-//        PrebidMobile.setPrebidServerAccountId("0689a263-318d-448b-a3d4-b02e8a709d9d");
         PrebidMobile.setPrebidServerHost(
-            Host.createCustomHost(
-//                "https://prebid-server-test-j.prebid.org/openrtb2/auction"
-                    "http:/pbs.admaru.net:8080/openrtb2/auction"
-            )
+                Host.createCustomHost(
+                        "http://pbs.admaru.net:8080/openrtb2/auction"
+                )
         );
         PrebidMobile.initializeSdk(getApplicationContext(), new SdkInitializationListener() {
             @Override

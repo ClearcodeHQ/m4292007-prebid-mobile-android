@@ -41,31 +41,11 @@
             android:exported="true" />
 
         <activity
-            android:name=".activities.ads.gam.original.GamOriginalApiDisplayBanner320x50"
-            android:exported="true" />
-        <activity
             android:name=".activities.ads.gam.original.GamOriginalApiDisplayBanner300x250"
             android:exported="true" />
+
         <activity
-            android:name=".activities.ads.gam.original.GamOriginalApiVideoBanner"
-            android:exported="true" />
-        <activity
-            android:name=".activities.ads.gam.original.GamOriginalApiDisplayInterstitial"
-            android:exported="true" />
-        <activity
-            android:name=".activities.ads.gam.original.GamOriginalApiVideoInterstitial"
-            android:exported="true" />
-        <activity
-            android:name=".activities.ads.gam.original.GamOriginalApiVideoRewarded"
-            android:exported="true" />
-        <activity
-            android:name=".activities.ads.gam.original.GamOriginalApiNativeInApp"
-            android:exported="true" />
-        <activity
-            android:name=".activities.ads.gam.original.GamOriginalApiNativeInBanner"
-            android:exported="true" />
-        <activity
-            android:name=".activities.ads.gam.original.GamOriginalApiVideoInStream"
+            android:name=".activities.ads.gam.original.NoGam"
             android:exported="true" />
 
     </application>

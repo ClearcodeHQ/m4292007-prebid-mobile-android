@@ -1,32 +1,22 @@
-[![Build Status](https://api.travis-ci.org/prebid/prebid-mobile-android.svg?branch=master)](https://travis-ci.org/prebid/prebid-mobile-android)
+# Prebid Mobile using Admaru Prebid Server example
 
-# Prebid Mobile Android SDK
+This repository contains an example of Admaru Prebid Server usage. The example is in `PrebidDemoJava`.
 
-To work with Prebid Mobile, you will need accesss to a Prebid Server. See [this page](http://prebid.org/prebid-mobile/prebid-mobile-pbs.html) for options.
+The project contains 2 activities:
 
-## Use Maven?
+* an example running without GAM, using stored request with id 1 and receiving bid from Admaru SSP mock
+* an example running with GAM, using stored request with id 1 and receiving bid from Appnexus (it doesn't work with Admaru, probably because of missing SSL certificate on Admaru Prebid Server Cache)
 
-Easily include the Prebid Mobile SDK using Maven. Simply add this line to your gradle dependencies:
+## Screenshots
 
-```
-implementation 'org.prebid:prebid-mobile-sdk:2.0.7'
-```
+- application menu
 
-## Build from source
+![menu](screenshots/menu.png)
 
-Build Prebid Mobile from source code. After cloning the repo, from the root directory run
+- example without using GAM (request to Admaru Prebid Server and from Prebid Server to Admaru SSP mock)
 
-```
-scripts/buildPrebidMobile.sh
-```
+![nogam](screenshots/nogam.png)
 
-to output the final lib jar and package you a demo app.
+- example using GAM (request to Admaru Prebid Server and from Prebid Server to Appnexus)
 
-
-## Test Prebid Mobile
-
-Run the test script to run unit tests and integration tests.
-
-```
-scripts/testPrebidMobile.sh
-```
+![nogam](screenshots/gam.png)
