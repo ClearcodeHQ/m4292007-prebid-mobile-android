@@ -33,8 +33,6 @@ public class GamOriginalApiDisplayBanner300x250 extends BaseAdActivity {
     }
 
     private void createAd() {
-        BannerBaseAdUnit.Parameters parameters = new BannerBaseAdUnit.Parameters();
-        parameters.setApi(Collections.singletonList(Signals.Api.MRAID_2));
         final String CONFIG_ID = "2"; // 1 for admaru bidder stored request, 2 for appnexus
 
         org.prebid.mobile.AdSize adSize = new org.prebid.mobile.AdSize(300, 250);
