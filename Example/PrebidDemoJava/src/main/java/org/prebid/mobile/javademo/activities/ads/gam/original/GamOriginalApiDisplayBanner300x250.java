@@ -16,26 +16,18 @@ import org.prebid.mobile.PrebidMobile;
 import org.prebid.mobile.Signals;
 import org.prebid.mobile.addendum.AdViewUtils;
 import org.prebid.mobile.addendum.PbFindSizeError;
+import org.prebid.mobile.api.rendering.BannerView;
+import org.prebid.mobile.eventhandlers.GamBannerEventHandler;
 import org.prebid.mobile.javademo.activities.BaseAdActivity;
 
 import java.util.Collections;
 
 public class GamOriginalApiDisplayBanner300x250 extends BaseAdActivity {
-
-    private static final String AD_UNIT_ID = "/21808260008/prebid_demo_app_original_api_banner_300x250_order";
-    private static final String CONFIG_ID = "imp-prebid-banner-300-250";
-    private static final String STORED_RESPONSE = "response-prebid-banner-300-250";
-    private static final int WIDTH = 300;
-    private static final int HEIGHT = 250;
-
     public BannerAdUnit adUnit;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // The ID of Mocked Bid Response on PBS. Only for test cases.
-        PrebidMobile.setStoredAuctionResponse(STORED_RESPONSE);
 
         createAd();
     }
@@ -43,46 +35,16 @@ public class GamOriginalApiDisplayBanner300x250 extends BaseAdActivity {
     private void createAd() {
         BannerBaseAdUnit.Parameters parameters = new BannerBaseAdUnit.Parameters();
         parameters.setApi(Collections.singletonList(Signals.Api.MRAID_2));
-        adUnit = new BannerAdUnit(CONFIG_ID, WIDTH, HEIGHT);
-        adUnit.setParameters(parameters);
+        final String CONFIG_ID = "2"; // 1 for admaru bidder stored request, 2 for appnexus
 
-        /* For GAM less than version 20 use PublisherAdView */
-        final AdManagerAdView gamView = new AdManagerAdView(this);
-        gamView.setAdUnitId(AD_UNIT_ID);
-        gamView.setAdSizes(new AdSize(WIDTH, HEIGHT));
+        org.prebid.mobile.AdSize adSize = new org.prebid.mobile.AdSize(300, 250);
+        GamBannerEventHandler eventHandler = new GamBannerEventHandler(this, "/1249652/admaruSSP_display_test", adSize);
+        final BannerView bannerView = new BannerView(this, CONFIG_ID, eventHandler);
 
-        getAdWrapperView().addView(gamView);
 
-        gamView.setAdListener(createListener(gamView));
+        getAdWrapperView().addView(bannerView);
 
-        final AdManagerAdRequest.Builder builder = new AdManagerAdRequest.Builder();
-        adUnit.setAutoRefreshInterval(getRefreshTimeSeconds());
-        adUnit.fetchDemand(builder, resultCode -> {
-            /* For GAM less than version 20 use PublisherAdRequest */
-            AdManagerAdRequest request = builder.build();
-            gamView.loadAd(request);
-        });
-    }
-
-    private AdListener createListener(AdManagerAdView gamView) {
-        return new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                AdViewUtils.findPrebidCreativeSize(gamView, new AdViewUtils.PbFindSizeListener() {
-                    @Override
-                    public void success(
-                        int width,
-                        int height
-                    ) {
-                        gamView.setAdSizes(new AdSize(width, height));
-                    }
-
-                    @Override
-                    public void failure(@NonNull PbFindSizeError error) {
-                    }
-                });
-            }
-        };
+        bannerView.loadAd();
     }
 
     @Override
