@@ -5,7 +5,7 @@ This repository contains an example of Admaru Prebid Server usage. The example i
 The project contains 2 activities:
 
 * an example running without GAM, using stored request with id 1 and receiving bid from Admaru SSP mock
-* an example running with GAM, using stored request with id 1 and receiving bid from Appnexus (it doesn't work with Admaru, probably because of missing SSL certificate on Admaru Prebid Server Cache)
+* an example running with GAM, using stored request with id 1 and receiving bid from Admaru SSP 
 
 ## Screenshots
 
@@ -13,10 +13,10 @@ The project contains 2 activities:
 
 ![menu](screenshots/menu.png)
 
-- example without using GAM (request to Admaru Prebid Server and from Prebid Server to Admaru SSP mock)
+- example without using GAM
 
 ![nogam](screenshots/nogam.png)
 
-- example using GAM (request to Admaru Prebid Server and from Prebid Server to Appnexus)
+- example using GAM
 
 ![nogam](screenshots/gam.png)
