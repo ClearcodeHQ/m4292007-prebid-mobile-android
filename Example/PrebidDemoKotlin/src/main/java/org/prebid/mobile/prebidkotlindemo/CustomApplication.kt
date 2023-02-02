@@ -39,13 +39,13 @@ class CustomApplication : Application() {
         initPrebidSDK()
         initAdMob()
         initApplovinMax()
-        TargetingParams.setSubjectToGDPR(true)
+        TargetingParams.setSubjectToGDPR(false)
         Settings.init(this)
     }
 
     private fun initPrebidSDK() {
-        PrebidMobile.setPrebidServerAccountId("0689a263-318d-448b-a3d4-b02e8a709d9d")
-        PrebidMobile.setPrebidServerHost(Host.createCustomHost("https://prebid-server-test-j.prebid.org/openrtb2/auction"))
+        PrebidMobile.setPrebidServerAccountId("1001")
+        PrebidMobile.setPrebidServerHost(Host.createCustomHost("http://pbs.admaru.net:8080/openrtb2/auction"))
         PrebidMobile.initializeSdk(applicationContext, object : SdkInitializationListener {
             override fun onSdkInit() {
                 Log.d(TAG, "SDK initialized successfully!")

@@ -32,9 +32,8 @@ import org.prebid.mobile.prebidkotlindemo.activities.BaseAdActivity
 class GamOriginalApiDisplayBanner300x250Activity : BaseAdActivity() {
 
     companion object {
-        const val AD_UNIT_ID = "/21808260008/prebid_demo_app_original_api_banner_300x250_order"
-        const val CONFIG_ID = "imp-prebid-banner-300-250"
-        const val STORED_RESPONSE = "response-prebid-banner-300-250"
+        const val AD_UNIT_ID = "/1249652/admaruSSP_display_test"
+        const val CONFIG_ID = "1"
         const val WIDTH = 300
         const val HEIGHT = 250
     }
@@ -44,9 +43,6 @@ class GamOriginalApiDisplayBanner300x250Activity : BaseAdActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // The ID of Mocked Bid Response on PBS. Only for test cases.
-        PrebidMobile.setStoredAuctionResponse(STORED_RESPONSE)
 
         createAd()
     }

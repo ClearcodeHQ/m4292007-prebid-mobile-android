@@ -108,8 +108,8 @@ class GamOriginalInstreamFragment : AdFragment() {
         adsLoader?.setPlayer(null)
         adsLoader?.release()
         player?.release()
-        PrebidMobile.setPrebidServerHost(Host.createCustomHost("https://prebid-server-test-j.prebid.org/openrtb2/auction"))
-        PrebidMobile.setPrebidServerAccountId(getString(R.string.prebid_account_id_prod))
+        PrebidMobile.setPrebidServerHost(Host.createCustomHost("http://pbs.admaru.net:8080/openrtb2/auction"))
+        PrebidMobile.setPrebidServerAccountId(getString("1001")
     }
 
 }

@@ -60,7 +60,7 @@ class GamOriginalApiInStreamActivity : BaseAdActivity() {
         // This example uses Rubicon Server TODO: Rewrite to AWS Server
         PrebidMobile.setPrebidServerAccountId("1001")
         PrebidMobile.setPrebidServerHost(
-            Host.createCustomHost("https://prebid-server.rubiconproject.com/openrtb2/auction")
+            Host.createCustomHost("http://pbs.admaru.net:8080/openrtb2/auction")
         )
 
         createAd()
@@ -153,10 +153,10 @@ class GamOriginalApiInStreamActivity : BaseAdActivity() {
         player?.release()
 
         // TODO: Return to AWS Server
-        PrebidMobile.setPrebidServerAccountId("0689a263-318d-448b-a3d4-b02e8a709d9d")
+        PrebidMobile.setPrebidServerAccountId("1001")
         PrebidMobile.setPrebidServerHost(
             Host.createCustomHost(
-                "https://prebid-server-test-j.prebid.org/openrtb2/auction"
+                "http://pbs.admaru.net:8080/openrtb2/auction"
             )
         )
     }
